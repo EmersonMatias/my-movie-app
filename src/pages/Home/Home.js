@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
+import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 import { MyContext } from "../../context/MyContext"
 import HeroSection from "./HeroSection"
@@ -28,8 +29,11 @@ export default function Home() {
         <Container>
             <Header></Header>
             <HeroSection />
-            <Popular />
-            aaaa
+            <Popular title={"Popular Movie"} screen={"movie"} type={"popular"} margin={-150} />
+            <Popular title={"Popular Tv Show"} screen={"tv"} type={"popular"} margin={120} />
+            <Popular title={"Upcoming Movie"} screen={"movie"} type={"upcoming"} margin={120} />
+            <Popular title={"Top Rated Tv Show"} screen={"tv"} type={"top_rated"} margin={120} />
+            <Footer />
         </Container>
     )
 }

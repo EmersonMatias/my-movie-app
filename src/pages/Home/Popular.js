@@ -6,66 +6,72 @@ import iconFire from "../../img/iconFire.svg"
 import iconArrowRight from "../../img/iconArrowRight.svg"
 import iconArrowLeft from "../../img/iconArrowLeft.svg"
 
-export default function Popular() {
-    const { API_KEY } = useContext(MyContext)
+export default function Popular({ title, type, screen, margin }) {
+    let { API_KEY } = useContext(MyContext)
 
-    const [listPopular1, setListPopular1] = useState([]);
-    const [listPopular2, setListPopular2] = useState([]);
-    const [listPopular, setListPopular] = useState([])
+    const [listFilms1, setListFilms1] = useState([]);
+    const [listFilms2, setListFilms2] = useState([]);
+    const [listFilms, setListFilms] = useState([])
     const [scrollCoordenates, setScrollCoordentes] = useState(0)
 
+
+
+    // Requisição dos filmes
     useEffect(() => {
-        
-        axios.get(`https://api.themoviedb.org/3/movie/popular${API_KEY}&language=pt-BR&page=1`)
-            .then((res) => (setListPopular1(listPopular1.concat(res.data.results))))
+        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&page=1`)
+            .then((res) => (setListFilms1(listFilms1.concat(res.data.results))))
             .catch((error) => (console.log(error.data)))
 
-        axios.get(`https://api.themoviedb.org/3/movie/popular${API_KEY}&language=pt-BR&page=2`)
-            .then((res) => (setListPopular2(listPopular2.concat(res.data.results))))
+        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&page=2`)
+            .then((res) => (setListFilms2(listFilms2.concat(res.data.results))))
             .catch((error) => (console.log(error.data)))
+
     }, [])
 
+    // Montando lista dos filmes
     useEffect(() => {
-            setListPopular(listPopular1.concat(listPopular2))
-    }, [listPopular1, listPopular2])
+        setListFilms(listFilms1.concat(listFilms2))
+    }, [listFilms1, listFilms2])
 
+    //Função leftScroll
     function leftScroll() {
         if (scrollCoordenates < 0) {
             setScrollCoordentes(scrollCoordenates + 700)
-        } else{
+        } else {
             setScrollCoordentes(0)
         }
     }
 
+    //Função rightScroll
     function rightScroll() {
         if (scrollCoordenates > -9600) {
             setScrollCoordentes(scrollCoordenates - 700)
-        } else{
+        } else {
             setScrollCoordentes(-9600)
         }
     }
 
     return (
-        <PopularContainer scrollCoordenates={scrollCoordenates}>
-            <h3 className="title">Popular <img className="iconFire"src={iconFire} /></h3>
+        <PopularContainer scrollCoordenates={scrollCoordenates} margin={margin}>
+            <h3 className="title">{title}<img className="iconFire" src={iconFire} alt="Icone" /></h3>
 
             <div className="scrollScreenContainer">
                 <div className="scrollScreen">
-                    {listPopular.map((object) => (
-                        <img src={`https://image.tmdb.org/t/p/original/${object.poster_path}`} />
+                    {listFilms.map((object) => (
+                        <img src={`https://image.tmdb.org/t/p/original/${object.poster_path}`} alt="Capa filme" />
                     ))}
                 </div>
             </div>
 
-            <img onClick={leftScroll} className="arrow left" src={iconArrowLeft}></img>
-            <img onClick={rightScroll} className="arrow right" src={iconArrowRight}></img>
+            <img onClick={leftScroll} className="arrow left" src={iconArrowLeft} alt="Icone Seta"></img>
+            <img onClick={rightScroll} className="arrow right" src={iconArrowRight} alt="Icone Seta"></img>
         </PopularContainer>
     )
 }
 
 const PopularContainer = styled.section`
     margin-left: 88px;
-    margin-top: -150px;
+    margin-top: ${props => props.margin}px;
     position: relative;
 
     .title{

@@ -15,11 +15,9 @@ export default function HeroSection() {
     let filmId = filmSelected?.id
     const backgroundPage = `https://image.tmdb.org/t/p/original/${filmSelected?.backdrop_path}`
 
- 
+    // Escolhendo filme aleatório
     useEffect(() => {
-
         setNumberArray(Math.floor(Math.random() * 20))
-
     }, [])
 
     function title() {
@@ -30,6 +28,7 @@ export default function HeroSection() {
         }
     }
 
+
     function cast() {
         if (listCast.length === 0) {
             return false
@@ -38,6 +37,7 @@ export default function HeroSection() {
         }
     }
 
+    // Requisição dos filmes
     useEffect(() => {
 
         axios.get(`https://api.themoviedb.org/3/trending/all/day${API_KEY}&language=pt-BR&page=1`)
@@ -52,25 +52,33 @@ export default function HeroSection() {
 
     return (
         <HeroSectionContainer cast={() => cast()} backgroundPage={backgroundPage}>
+
             <div className="opacity">
-                <div className="contentHeroSection">
-                    <img className="poster" alt="Poster" src={`https://image.tmdb.org/t/p/original/${filmSelected?.poster_path}`} />
-                    <div className="textHeroSection">
-                        <h2>{title()}</h2>
-                        <div className="buttonsHeroSection">
-                            <button>QUERO ASSISTIR <img alt="Icone Mais" src={iconPlus} /></button>
-                            <button>FAVORITO <img alt="Icone Estrela" src={iconStar} /></button>
-                        </div>
-                        <p className="description">{filmSelected?.overview}
-                        </p>
-                        <p className="cast">Elenco: {listCast[0]?.name}, {listCast[1]?.name}, {listCast[2]?.name}</p>
-           
+            </div>
+            <div className="gradient">
+            </div>
+            <div className="contentHeroSection">
+                <img className="poster" alt="Poster" src={`https://image.tmdb.org/t/p/original/${filmSelected?.poster_path}`} />
+                <div className="textHeroSection">
+                    <h2>{title()}</h2>
+                    <div className="buttonsHeroSection">
+                        <button>QUERO ASSISTIR <img alt="Icone Mais" src={iconPlus} /></button>
+                        <button>FAVORITO <img alt="Icone Estrela" src={iconStar} /></button>
                     </div>
+                    <p className="description">{filmSelected?.overview}
+                    </p>
+                    <p className="cast">Elenco: {listCast[0]?.name}, {listCast[1]?.name}, {listCast[2]?.name}</p>
+
                 </div>
             </div>
+
+
+
         </HeroSectionContainer>
     )
 }
+
+
 
 const HeroSectionContainer = styled.section`
     width: 100%;
@@ -79,17 +87,29 @@ const HeroSectionContainer = styled.section`
     background-image: url(${props => props.backgroundPage});
     background-size: cover;
     display: flex;
+    position: relative;
 
     .opacity{
         background-color: rgba(0,0,0,0.5);
         width: 100%;
+        height: 100vh;
+        position: absolute;
     }
+
+    .gradient{
+
+width: 100%;
+height: 100vh;
+position: absolute;
+background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(0,0,0,1) 90%);
+}
 
     .contentHeroSection{
         display: flex;
         height: 800px;
         margin-top: 140px;
         margin-left: 260px;
+        position: absolute;
     }
 
     .textHeroSection{
@@ -113,13 +133,15 @@ const HeroSectionContainer = styled.section`
         max-width: 800px;
     }
 
+    //     background: linear-gradient(90deg, hsla(42, 93%, 57%, 0.8) 0%, hsla(358, 78%, 62%, 0.8) 100%);
+    //      background: linear-gradient(90deg, hsla(32, 100%, 81%, 0.8) 0%, hsla(18, 100%, 50%, 0.8) 100%);
     .buttonsHeroSection{
         display: flex;
 
         button{
             padding: 16px 32px;
             border-radius: 30px;
-            background: linear-gradient(90deg, hsla(42, 93%, 57%, 0.8) 0%, hsla(358, 78%, 62%, 0.8) 100%);
+            background: linear-gradient(90deg, hsla(42, 93%, 57%, 0.9) 0%, hsla(358, 78%, 62%, 0.9) 100%);
             border: none;
             color: white;
             font-size: 16px;
@@ -140,7 +162,7 @@ const HeroSectionContainer = styled.section`
     }
 
     .description, .cast, .genre{
-        max-width: 550px;
+        max-width: 500px;
         font-size: 18px;
         font-weight: 400;
         color: #FFFFFF;
