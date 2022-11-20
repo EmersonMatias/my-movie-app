@@ -78,8 +78,6 @@ export default function HeroSection() {
     )
 }
 
-
-
 const HeroSectionContainer = styled.section`
     width: 100%;
     height: 100vh;
@@ -106,7 +104,8 @@ background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(0,0,0,1) 90%);
 
     .contentHeroSection{
         display: flex;
-        height: 800px;
+        align-items: center;
+        width: 1050px;
         margin-top: 140px;
         margin-left: 260px;
         position: absolute;

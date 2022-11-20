@@ -6,7 +6,7 @@ import iconFire from "../../img/iconFire.svg"
 import iconArrowRight from "../../img/iconArrowRight.svg"
 import iconArrowLeft from "../../img/iconArrowLeft.svg"
 
-export default function Popular({ title, type, screen, margin }) {
+export default function ScrollScreen({ title, type, screen, margin, genre}) {
     let { API_KEY } = useContext(MyContext)
 
     const [listFilms1, setListFilms1] = useState([]);
@@ -15,14 +15,13 @@ export default function Popular({ title, type, screen, margin }) {
     const [scrollCoordenates, setScrollCoordentes] = useState(0)
 
 
-
     // Requisição dos filmes
     useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&page=1`)
+        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&with_genres=${genre}&page=1`)
             .then((res) => (setListFilms1(listFilms1.concat(res.data.results))))
             .catch((error) => (console.log(error.data)))
 
-        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&page=2`)
+        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&with_genres=${genre}&page=2`)
             .then((res) => (setListFilms2(listFilms2.concat(res.data.results))))
             .catch((error) => (console.log(error.data)))
 

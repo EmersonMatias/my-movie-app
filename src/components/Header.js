@@ -1,20 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import iconUserFill from "../img/iconUserFill.svg"
 
+
 export default function Header() {
+    const navigate = useNavigate()
+
+
     return (
         <HeaderContainer>
             <div className="leftSide">
                 <h1>MyMovie</h1>
-                <h6>Início</h6>
-                <h6>Filmes</h6>
+                <h6 onClick={() => navigate("/")}>Início</h6>
+                <h6 onClick={() =>  navigate("/filmes")}>Filmes</h6>
                 <h6>Série</h6>
             </div>
 
             <div className="rightSide">
                 <input placeholder="Pesquisar"></input>
                 <h6 className="login">Login</h6>
-                <img clasName="user" alt="icon User"src={iconUserFill} />
+                <img className="user" alt="icon User"src={iconUserFill} />
             </div>
         </HeaderContainer>
     )
@@ -31,6 +36,7 @@ const HeaderContainer = styled.header`
     top: 0;
     right: 0;
     z-index: 2;
+    
 
     .leftSide, .rightSide{
         display: flex;
@@ -53,6 +59,7 @@ const HeaderContainer = styled.header`
         font-weight: bold;
         color: #FFFFFF;
         margin-right: 36px;
+        cursor: pointer;
     }
 
     input{
