@@ -1,17 +1,32 @@
+import { useContext } from "react"
 import styled from "styled-components"
 import Footer from "../../components/Footer"
-import HeroSection from "./HeroSection"
-import ScrollScreen from "./ScrollScreen"
+import { MyContext } from "../../context/MyContext"
+import HeroSection from "../../components/HeroSection"
+import ScrollScreen from "../../components/ScrollScreen"
+
 
 export default function Home() {
+    const { itemsHomeScreen } = useContext(MyContext)
+    const { allItems } = useContext(MyContext)
+    const HeroSectionHome = allItems?.HeroSectionHome
+
     return (
         <Container>
-            <HeroSection />
+            <HeroSection
+                background={HeroSectionHome?.Background}
+                poster={HeroSectionHome?.Poster}
+                filmTitle={HeroSectionHome?.TrendingMovie?.title}
+                name={HeroSectionHome?.TrendingMovie?.name}
+                overview={HeroSectionHome?.TrendingMovie.overview}
+                height={"100vh"}
+                stateButtons={true}
+            />
 
-            <ScrollScreen title={"Popular Movie"} screen={"movie"} type={"popular"} margin={-150} />
-            <ScrollScreen title={"Popular Tv Show"} screen={"tv"} type={"popular"} margin={120} />
-            <ScrollScreen title={"Top Rated Tv Show"} screen={"tv"} type={"top_rated"} margin={120} />
-            <ScrollScreen title={"Upcoming Movie"} screen={"movie"} type={"upcoming"} margin={120} />
+            {itemsHomeScreen?.map((datas) => (
+                <ScrollScreen title={datas.title} margin={datas.margin} listFilms={datas.items} />
+            ))}
+
             <Footer />
         </Container>
     )

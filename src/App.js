@@ -1,18 +1,35 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "./components/GlobalStyles";
 import Header from "./components/Header";
 import { MyContext } from "./context/MyContext";
 import Home from "./pages/Home/Home";
 import Movies from "./pages/Movies/Movies";
+import { requests } from "./requests.js";
+
 
 export default function App() {
-  const URL_IMAGE_REQUISITION = "https://image.tmdb.org/t/p/"
-  const API_KEY = "?api_key=a4dff07ca687866e825f0a03e0d23276"
+  const [allItems, setAllItems] = useState()
+  const [itemsHomeScreen, setItemsHomeScreen] = useState()
+  const [itemsMoviesScreen, setItemsMovieScreen] = useState()
+
+  useEffect(() => {
+    const getListMovies = async () => {
+        const listMovies = await requests()
+
+        setItemsHomeScreen(listMovies.HomeScreen)
+        setItemsMovieScreen(listMovies.MoviesScreen)
+        setAllItems(listMovies)
+    }
+
+    getListMovies()
+}, [])
 
   return (
     <BrowserRouter>
       <GlobalStyles />
-      <MyContext.Provider value={{ URL_IMAGE_REQUISITION, API_KEY }}>
+      <MyContext.Provider value={{setItemsHomeScreen, setItemsMovieScreen, itemsHomeScreen, itemsMoviesScreen, allItems
+      }}>
 
         <Header />
 

@@ -1,36 +1,11 @@
-import axios from "axios"
-import { useContext, useEffect, useState } from "react"
+import { useState } from "react"
 import styled from "styled-components"
-import { MyContext } from "../../context/MyContext"
-import iconFire from "../../img/iconFire.svg"
-import iconArrowRight from "../../img/iconArrowRight.svg"
-import iconArrowLeft from "../../img/iconArrowLeft.svg"
+import iconFire from "../img/iconFire.svg"
+import iconArrowRight from "../img/iconArrowRight.svg"
+import iconArrowLeft from "../img/iconArrowLeft.svg"
 
-export default function ScrollScreen({ title, type, screen, margin, genre}) {
-    let { API_KEY } = useContext(MyContext)
-
-    const [listFilms1, setListFilms1] = useState([]);
-    const [listFilms2, setListFilms2] = useState([]);
-    const [listFilms, setListFilms] = useState([])
+export default function ScrollScreen({title, margin, listFilms}) {
     const [scrollCoordenates, setScrollCoordentes] = useState(0)
-
-
-    // Requisição dos filmes
-    useEffect(() => {
-        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&with_genres=${genre}&page=1`)
-            .then((res) => (setListFilms1(listFilms1.concat(res.data.results))))
-            .catch((error) => (console.log(error.data)))
-
-        axios.get(`https://api.themoviedb.org/3/${screen}/${type}${API_KEY}&language=pt-BR&with_genres=${genre}&page=2`)
-            .then((res) => (setListFilms2(listFilms2.concat(res.data.results))))
-            .catch((error) => (console.log(error.data)))
-
-    }, [])
-
-    // Montando lista dos filmes
-    useEffect(() => {
-        setListFilms(listFilms1.concat(listFilms2))
-    }, [listFilms1, listFilms2])
 
     //Função leftScroll
     function leftScroll() {
@@ -56,7 +31,7 @@ export default function ScrollScreen({ title, type, screen, margin, genre}) {
 
             <div className="scrollScreenContainer">
                 <div className="scrollScreen">
-                    {listFilms.map((object) => (
+                    {listFilms?.map((object) => (
                         <img src={`https://image.tmdb.org/t/p/original/${object.poster_path}`} alt="Capa filme" />
                     ))}
                 </div>

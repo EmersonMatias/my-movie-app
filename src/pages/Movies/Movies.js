@@ -1,22 +1,34 @@
+import { useContext, useEffect } from "react"
 import styled from "styled-components"
 import Footer from "../../components/Footer"
-import ScrollScreen from "../Home/ScrollScreen"
-import HeroSectionMovies from "./HeroSectionMovies"
-
+import { MyContext } from "../../context/MyContext"
+import HeroSection from "../../components/HeroSection"
+import ScrollScreen from "../../components/ScrollScreen"
 
 export default function Movies() {
+    const { itemsMoviesScreen, allItems } = useContext(MyContext)
+    const HeroSectionMovies = allItems?.HeroSectionMovies
+    console.log(allItems?.HeroSectionMovies)
+
+    useEffect(() => {
+
+    }, [itemsMoviesScreen])
 
     return (
         <Container>
-            <HeroSectionMovies />
-            <ScrollScreen title={"Ação"} screen={"discover"} type={"movie"} margin={-150} genre={"28"} />
-            <ScrollScreen title={"Aventura"} screen={"discover"} type={"movie"} margin={120} genre={"12"} />
-            <ScrollScreen title={"Animação"} screen={"discover"} type={"movie"} margin={120} genre={"16"} />
-            <ScrollScreen title={"Comédia"} screen={"discover"} type={"movie"} margin={120} genre={"35"} />
-            <ScrollScreen title={"Drama"} screen={"discover"} type={"movie"} margin={120} genre={"18"} />
-            <ScrollScreen title={"Horror"} screen={"discover"} type={"movie"} margin={120} genre={"27"} />
-            <ScrollScreen title={"Drama"} screen={"discover"} type={"movie"} margin={120} genre={"10749"} />
-            <ScrollScreen title={"Fantasia"} screen={"discover"} type={"movie"} margin={120} genre={"14"} />
+            <HeroSection
+                background={HeroSectionMovies?.Background}
+                poster={HeroSectionMovies?.Poster}
+                filmTitle={HeroSectionMovies?.NowPlaying?.title}
+                name={HeroSectionMovies?.NowPlaying?.name}
+                overview={HeroSectionMovies?.NowPlaying.overview}
+                height={"75vh"}
+                stateButtons={false}
+            />
+
+            {itemsMoviesScreen?.map((datas) => (
+                <ScrollScreen title={datas.title} margin={datas.margin} listFilms={datas.items} />
+            ))}
 
             <Footer />
         </Container>)
