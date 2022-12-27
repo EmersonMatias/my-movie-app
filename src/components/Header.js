@@ -10,10 +10,10 @@ export default function Header() {
     return (
         <HeaderContainer>
             <div className="leftSide">
-                <h1>MyMovie</h1>
+                <h1 onClick={() => navigate("/")}>MyMovie</h1>
                 <h6 onClick={() => navigate("/")}>Início</h6>
                 <h6 onClick={() =>  navigate("/filmes")}>Filmes</h6>
-                <h6>Série</h6>
+                <h6 onClick={() => navigate("/series")}>Série</h6>
             </div>
 
             <div className="rightSide">

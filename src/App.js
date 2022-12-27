@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import { MyContext } from "./context/MyContext";
 import Home from "./pages/Home/Home";
 import Movies from "./pages/Movies/Movies";
+import { Series } from "./pages/Series/Series";
 import { requests } from "./requests.js";
 
 
@@ -12,23 +13,27 @@ export default function App() {
   const [allItems, setAllItems] = useState()
   const [itemsHomeScreen, setItemsHomeScreen] = useState()
   const [itemsMoviesScreen, setItemsMovieScreen] = useState()
+  const [itemsSeriesScreen, setItemsSeriesScreen] = useState()
+  console.log("a")
 
   useEffect(() => {
     const getListMovies = async () => {
-        const listMovies = await requests()
+      const listMovies = await requests()
 
-        setItemsHomeScreen(listMovies.HomeScreen)
-        setItemsMovieScreen(listMovies.MoviesScreen)
-        setAllItems(listMovies)
+      setItemsHomeScreen(listMovies?.HomeScreen)
+      setItemsMovieScreen(listMovies?.MoviesScreen)
+      setItemsSeriesScreen(listMovies?.SeriesScreen)
+      setAllItems(listMovies)
     }
 
     getListMovies()
-}, [])
+  }, [])
 
   return (
     <BrowserRouter>
       <GlobalStyles />
-      <MyContext.Provider value={{setItemsHomeScreen, setItemsMovieScreen, itemsHomeScreen, itemsMoviesScreen, allItems
+      <MyContext.Provider value={{
+        setItemsHomeScreen, setItemsMovieScreen, itemsHomeScreen, itemsMoviesScreen,itemsSeriesScreen ,allItems
       }}>
 
         <Header />
@@ -36,9 +41,10 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/filmes' element={<Movies />} />
+          <Route path='/series' element={<Series />} />
         </Routes>
 
-      
+
       </MyContext.Provider >
     </BrowserRouter>
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext} from "react"
 import styled from "styled-components"
 import Footer from "../../components/Footer"
 import { MyContext } from "../../context/MyContext"
@@ -8,11 +8,6 @@ import ScrollScreen from "../../components/ScrollScreen"
 export default function Movies() {
     const { itemsMoviesScreen, allItems } = useContext(MyContext)
     const HeroSectionMovies = allItems?.HeroSectionMovies
-    console.log(allItems?.HeroSectionMovies)
-
-    useEffect(() => {
-
-    }, [itemsMoviesScreen])
 
     return (
         <Container>

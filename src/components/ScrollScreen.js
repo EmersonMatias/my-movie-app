@@ -32,7 +32,7 @@ export default function ScrollScreen({title, margin, listFilms}) {
             <div className="scrollScreenContainer">
                 <div className="scrollScreen">
                     {listFilms?.map((object) => (
-                        <img src={`https://image.tmdb.org/t/p/original/${object.poster_path}`} alt="Capa filme" />
+                        <img src={`https://image.tmdb.org/t/p/original/${object?.poster_path}`} alt="Capa filme" />
                     ))}
                 </div>
             </div>
