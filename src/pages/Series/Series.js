@@ -17,7 +17,7 @@ export function Series() {
                 filmTtile={HeroSectionSeries?.OnTheAir?.title}
                 name={HeroSectionSeries?.OnTheAir?.name}
                 overview={HeroSectionSeries?.OnTheAir?.overview}
-                height={"75vh"}
+                height={"100vh"}
                 stateButtons={false}
             />
 
@@ -35,6 +35,6 @@ const Container = styled.div`
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
-    background: black;
+    background: #101216;
     overflow: hidden;
 `

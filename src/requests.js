@@ -17,14 +17,14 @@ export async function requests() {
         listMovies = {
             HomeScreen:
                 [
-                    { title: "Popular Movie", items: await (await axios.get(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=2`)).data.results), margin: -150 },
+                    { title: "Popular Movie", items: await (await axios.get(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=2`)).data.results), margin: -240 },
                     { title: "Popular TV Show", items: await (await axios.get(`${BASE_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=2`)).data.results), margin: 120 },
                     { title: "Top Rated TV Show", items: await (await axios.get(`${BASE_URL}tv/top_rated?api_key=${API_KEY}&language=pt-BR&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}tv/top_rated?api_key=${API_KEY}&language=pt-BR&page=2`)).data.results), margin: 120 },
                     { title: "Upcoming Movie", items: await (await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=pt-BR`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=pt-BR`)).data.results), margin: 120 }
                 ],
             MoviesScreen:
                 [
-                    { title: "Ação", items: await (await axios.get(`${BASE_URL_DISCOVER}28&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_DISCOVER}28&page=2`)).data.results), margin: 0 },
+                    { title: "Ação", items: await (await axios.get(`${BASE_URL_DISCOVER}28&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_DISCOVER}28&page=2`)).data.results), margin: -240 },
                     { title: "Aventura", items: await (await axios.get(`${BASE_URL_DISCOVER}12&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_DISCOVER}12&page=2`)).data.results), margin: 120 },
                     { title: "Animação", items: await (await axios.get(`${BASE_URL_DISCOVER}16&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_DISCOVER}16&page=2`)).data.results), margin: 120 },
                     { title: "Comédia", items: await (await axios.get(`${BASE_URL_DISCOVER}35&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_DISCOVER}35&page=2`)).data.results), margin: 120 },
@@ -35,7 +35,7 @@ export async function requests() {
                 ],
             SeriesScreen:
             [
-                {title:"Ação e Aventura", items: await (await axios.get(`${BASE_URL_TVDISCOVER}10759&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_TVDISCOVER}10759&page=2`)).data.results), margin:0},
+                {title:"Ação e Aventura", items: await (await axios.get(`${BASE_URL_TVDISCOVER}10759&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_TVDISCOVER}10759&page=2`)).data.results), margin:-240},
                 {title:"Animação", items: await (await axios.get(`${BASE_URL_TVDISCOVER}16&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_TVDISCOVER}16&page=2`)).data.results), margin:120},
                 {title:"Comédia", items: await (await axios.get(`${BASE_URL_TVDISCOVER}35&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_TVDISCOVER}35&page=2`)).data.results), margin:120},
                 {title:"Drama", items: await (await axios.get(`${BASE_URL_TVDISCOVER}18&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL_TVDISCOVER}18&page=2`)).data.results), margin:120},

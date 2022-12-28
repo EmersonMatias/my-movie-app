@@ -17,7 +17,7 @@ export default function Movies() {
                 filmTitle={HeroSectionMovies?.NowPlaying?.title}
                 name={HeroSectionMovies?.NowPlaying?.name}
                 overview={HeroSectionMovies?.NowPlaying.overview}
-                height={"75vh"}
+                height={"100vh"}
                 stateButtons={false}
             />
 
@@ -33,7 +33,7 @@ const Container = styled.div`
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
-    background: #000000;
+    background: #101216;
     overflow: hidden;
 `
 

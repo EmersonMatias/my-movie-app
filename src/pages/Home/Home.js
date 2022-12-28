@@ -34,7 +34,7 @@ export default function Home() {
 
 const Container = styled.div`
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #000000;
+    background-color: #101216;
     width: 100%;
     font-size: 50px;
     overflow: hidden;

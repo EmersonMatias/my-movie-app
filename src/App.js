@@ -6,6 +6,8 @@ import { MyContext } from "./context/MyContext";
 import Home from "./pages/Home/Home";
 import Movies from "./pages/Movies/Movies";
 import { Series } from "./pages/Series/Series";
+import SpecificFilm from "./pages/SpecificFilm/SpecificFilm";
+import SpecificSerie from "./pages/SpecificSerie/SpecificSerie";
 import { requests } from "./requests.js";
 
 
@@ -30,10 +32,10 @@ export default function App() {
   }, [])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
       <GlobalStyles />
       <MyContext.Provider value={{
-        setItemsHomeScreen, setItemsMovieScreen, itemsHomeScreen, itemsMoviesScreen,itemsSeriesScreen ,allItems
+        setItemsHomeScreen, setItemsMovieScreen, itemsHomeScreen, itemsMoviesScreen, itemsSeriesScreen, allItems
       }}>
 
         <Header />
@@ -42,6 +44,8 @@ export default function App() {
           <Route path='/' element={<Home />} />
           <Route path='/filmes' element={<Movies />} />
           <Route path='/series' element={<Series />} />
+          <Route path="/filmes/:id" element={<SpecificFilm />} />
+          <Route path="/series/:id" element={<SpecificSerie />} />
         </Routes>
 
 

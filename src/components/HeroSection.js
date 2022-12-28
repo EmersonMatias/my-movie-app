@@ -52,11 +52,13 @@ const HeroSectionContainer = styled.section`
         position: absolute;
     }
     */ 
+
+    
     .gradient{
         width: 100%;
         height: ${props => props.height};
         position: absolute;
-        background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(0,0,0,1) 85%);
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(16,18,22,1) 85%);
     }   
 
     .contentHeroSection{

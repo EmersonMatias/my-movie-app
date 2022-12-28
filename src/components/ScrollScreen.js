@@ -3,9 +3,12 @@ import styled from "styled-components"
 import iconFire from "../img/iconFire.svg"
 import iconArrowRight from "../img/iconArrowRight.svg"
 import iconArrowLeft from "../img/iconArrowLeft.svg"
+import { useNavigate } from "react-router-dom"
 
-export default function ScrollScreen({title, margin, listFilms}) {
+export default function ScrollScreen({ title, margin, listFilms }) {
     const [scrollCoordenates, setScrollCoordentes] = useState(0)
+    const navigate = useNavigate()
+    console.log(listFilms)
 
     //Função leftScroll
     function leftScroll() {
@@ -32,7 +35,11 @@ export default function ScrollScreen({title, margin, listFilms}) {
             <div className="scrollScreenContainer">
                 <div className="scrollScreen">
                     {listFilms?.map((object) => (
-                        <img src={`https://image.tmdb.org/t/p/original/${object?.poster_path}`} alt="Capa filme" />
+                        <img
+                            src={`https://image.tmdb.org/t/p/original/${object?.poster_path}`}
+                            alt="Capa filme"
+                            onClick={() => navigate(`/filmes/${object.id}`)}
+                        />
                     ))}
                 </div>
             </div>
