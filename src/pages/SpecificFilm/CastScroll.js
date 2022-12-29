@@ -1,18 +1,34 @@
+import { useState } from "react"
+import { useEffect } from "react"
 import styled from "styled-components"
+import { castFilm } from "./requestsFilm"
 
+export function CastScroll({filmId}) {
+    const [cast, setCast] = useState()
+   
+    useEffect(() => {
+        const getCast = async () => {
+            const dataCast = await castFilm(filmId)
+            console.log(dataCast)
 
-export async function CastScroll(aa){
-    return(
+            setCast(dataCast.peoples)
+        }
+
+        getCast()
+    }, [])
+   
+    return (
         <Container>
+            {cast?.map((person) => (
                 <div className="castPeople">
-                    <img src={`https://www.themoviedb.org/t/p/original`} />
-                    <p className="realName">{}</p>
-                    <p>{}</p>
-                </div>
-    </Container>
+                <img src={`https://www.themoviedb.org/t/p/original${person?.profile_path}`} alt={person?.name}/>
+                <p className="realName">{person?.name}</p>
+                <p>{person?.character}</p>
+            </div>
+            ))}
+        </Container>
     )
 }
-
 
 const Container = styled.div`
     width: 100%;
@@ -35,7 +51,6 @@ const Container = styled.div`
 
         .realName{
             font-weight: bold;
-          
         }
     }
 

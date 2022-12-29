@@ -20,7 +20,7 @@ export async function requests() {
                     { title: "Popular Movie", items: await (await axios.get(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=2`)).data.results), margin: -240 },
                     { title: "Popular TV Show", items: await (await axios.get(`${BASE_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=2`)).data.results), margin: 120 },
                     { title: "Top Rated TV Show", items: await (await axios.get(`${BASE_URL}tv/top_rated?api_key=${API_KEY}&language=pt-BR&page=1`)).data.results.concat(await (await axios.get(`${BASE_URL}tv/top_rated?api_key=${API_KEY}&language=pt-BR&page=2`)).data.results), margin: 120 },
-                    { title: "Upcoming Movie", items: await (await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=pt-BR`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=pt-BR`)).data.results), margin: 120 }
+                    { title: "Upcoming Movie", items: await (await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=pt-BR`)).data.results.concat(await (await axios.get(`${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=pt-BRpage=3`)).data.results), margin: 120 }
                 ],
             MoviesScreen:
                 [
