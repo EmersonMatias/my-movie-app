@@ -36,6 +36,7 @@ const HeaderContainer = styled.header`
     top: 0;
     right: 0;
     z-index: 2;
+    font-family: 'Poppins', sans-serif;
     
 
     .leftSide, .rightSide{

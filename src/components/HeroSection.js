@@ -43,6 +43,7 @@ const HeroSectionContainer = styled.section`
     background-size: cover;
     display: flex;
     position: relative;
+    font-family: 'Poppins', sans-serif;
 
     /*
      .opacity{

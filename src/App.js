@@ -9,6 +9,7 @@ import { Series } from "./pages/Series/Series";
 import SpecificFilm from "./pages/SpecificFilm/SpecificFilm";
 import SpecificSerie from "./pages/SpecificSerie/SpecificSerie";
 import { requests } from "./requests.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function App() {

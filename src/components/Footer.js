@@ -20,6 +20,7 @@ const Container = styled.div`
     justify-content: center;
     background-color: rgba(255,255,255,0.1);
     color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
 
     img{
         margin: 0 15px;

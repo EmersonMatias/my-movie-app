@@ -54,6 +54,7 @@ const PopularContainer = styled.section`
     margin-left: 88px;
     margin-top: ${props => props.margin}px;
     position: relative;
+    font-family: 'Poppins', sans-serif;
 
     .title{
         font-size: 40px;

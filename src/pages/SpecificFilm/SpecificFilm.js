@@ -5,6 +5,7 @@ import SpecificFilmHeroSection from "./SpecificFilm_HeroSection"
 import { CastScroll } from "./CastScroll"
 import { request } from "./requestsFilm"
 import SubContent from "./SubContent"
+import { AboutFilm } from "./AboutFilm"
 
 
 export default function SpecificFilm() {
@@ -31,15 +32,11 @@ export default function SpecificFilm() {
 
     return (
         <Container>
-            <SpecificFilmHeroSection background={background} poster={poster} title={data?.data.title} rate={data?.data.vote_average}/>
+            <SpecificFilmHeroSection background={background} poster={poster} title={data?.data.title} rate={data?.data.vote_average} />
 
-            <SubContent runtime={data?.data?.runtime} year={data?.data?.release_date.split("-")[0]} genres={data?.data?.genres[0].name} providers={data?.providers}/>
+            <SubContent runtime={data?.data?.runtime} year={data?.data?.release_date.split("-")[0]} genres={data?.data?.genres[0].name} providers={data?.providers} />
 
-            <div className="aboutMovie">
-                <div>
-
-                </div>
-            </div>
+            <AboutFilm overview={data?.data?.overview} trailers={data?.trailers} trailerOpcional={data?.trailers[0]?.key}/>
 
             <CastScroll filmId={id}/>
 
@@ -52,9 +49,9 @@ export default function SpecificFilm() {
 const Container = styled.div`
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 35px;
     background: #101216;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif
 `
 
 

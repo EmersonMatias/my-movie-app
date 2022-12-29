@@ -1,7 +1,5 @@
 import styled from "styled-components"
 
-
-
 export default function SpecificFilm_HeroSection({ background, poster, title, rate }) {
     console.log(rate)
     return (
@@ -25,6 +23,7 @@ const Container = styled.div`
     height: 37vw;
     background-image: url(${props => props.background});
     background-size: cover;
+    font-size: 1.8vw;
 
     .gradient{
         width: 100%;
