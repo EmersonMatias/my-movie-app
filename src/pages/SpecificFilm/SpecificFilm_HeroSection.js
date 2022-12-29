@@ -6,6 +6,7 @@ export default function SpecificFilm_HeroSection({ background, poster, title, ra
     console.log(rate)
     return (
         <Container background={background}>
+            <div className="gradient"></div>
             <div className="poster">
                 <img src={poster} alt="Poster" />
             </div>
@@ -22,10 +23,15 @@ export default function SpecificFilm_HeroSection({ background, poster, title, ra
 const Container = styled.div`
     width: 100%;
     height: 37vw;
-    background-color: yellow;
     background-image: url(${props => props.background});
     background-size: cover;
-   
+
+    .gradient{
+        width: 100%;
+        height: 37vw;
+        position: absolute;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(16,18,22,1) 95%);
+    }
 
     .poster{
         width: 54vw;
