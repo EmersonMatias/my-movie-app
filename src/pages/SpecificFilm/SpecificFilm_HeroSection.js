@@ -1,15 +1,23 @@
 import styled from "styled-components"
 
-export default function SpecificFilm_HeroSection({ background, poster, title, rate }) {
-    console.log(rate)
+export default function SpecificFilm_HeroSection({ background, poster, title, rate , name, homepage}) {
+    console.log(background, poster)
+
+
+    function goHomepage(){
+        if(homepage !== ""){
+            return window.location.href = homepage
+        }
+    }
+
     return (
         <Container background={background}>
             <div className="gradient"></div>
-            <div className="poster">
+            <div className="poster" onClick={() => goHomepage()}>
                 <img src={poster} alt="Poster" />
             </div>
             <div className="title">
-                <p>{title}</p>
+                <p>{title ? title : name}</p>
             </div>
             <div className="rating">
                 <p>{rate?.toFixed(1)}</p>

@@ -1,5 +1,7 @@
 import axios from "axios"
 
+
+
 export const request = async (id) => {
     let data
 
@@ -15,7 +17,6 @@ export const request = async (id) => {
     }
     return data
 }
-
 
 export const castFilm = async(id) => {
     let cast;

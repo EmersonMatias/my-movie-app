@@ -22,7 +22,7 @@ export function Series() {
             />
 
             {itemsSeriesScreen?.map((datas) => (
-                <ScrollScreen title={datas?.title} margin={datas?.margin} listFilms={datas?.items} />
+                <ScrollScreen title={datas?.title} margin={datas?.margin} listFilms={datas?.items} session={"series"}/>
             ))}
 
             <Footer />

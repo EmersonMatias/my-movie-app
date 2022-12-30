@@ -44,14 +44,12 @@ const Container = styled.div`
     width: 100%;
     margin: 160px 0;
     color: #FFFFFF;
-   
 
     .description{
         width: 50%;
         padding-left: 4vw;
         padding-right: 4vw;
         
-
         h1{
             font-size: 2vw;
             font-weight: bold;
@@ -73,6 +71,5 @@ const Container = styled.div`
         .ratio{
             width: 80%;
         }
-
     }
 `

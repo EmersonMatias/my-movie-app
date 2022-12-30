@@ -7,7 +7,7 @@ import iconPlus2 from "../../img/iconPlus2.svg"
 import iconEye from "../../img/iconEye.svg"
 import styled from "styled-components"
 
-export default function SubContent({ runtime, year, genres, providers }) {
+export default function SubContent({ runtime, year, genres, providers, session}) {
     const streamings = providers?.flatrate
     const rents = providers?.rent
     const hasStreamings = streamings?.length
@@ -23,7 +23,7 @@ export default function SubContent({ runtime, year, genres, providers }) {
                     <p>{year}</p>
                     <img src={iconVector} alt="iconVector" />
                     <img src={iconClock} alt="iconVector" />
-                    <p>{runtime} minutos</p>
+                    <p>{runtime} {session === "filme" ?  "minutos" : "Temporada(s)"}</p>
                     <img src={iconVector} alt="iconVector" />
                     <img src={iconTicket} alt="iconTicket" />
                     <p>{genres}</p>
@@ -31,14 +31,14 @@ export default function SubContent({ runtime, year, genres, providers }) {
                 </div>
                 <div className="providers">
                     <div className="streamings">
-                        <p>Streamings</p>
+                        <p>Stream</p>
 
                         {streamings?.map((streaming) => (
                             <img src={`https://www.themoviedb.org/t/p/original${streaming.logo_path}`} alt={streaming.provider_name} />
                         ))}
                     </div>
                     <div className="rent">
-                        <p>Rent</p>
+                        <p>Alugar</p>
                         {rents?.map((rent) => (
                             <img src={`https://www.themoviedb.org/t/p/original${rent.logo_path}`} alt={rents.provider_name} />
                         ))}
@@ -112,7 +112,6 @@ const Container = styled.div`
                     display: ${props => props.hasRents ? "flex" : "none"};
                     align-items: center;
                     flex-wrap: wrap;
-                    background-color: rebeccapurple;
                     margin-bottom: 1vw;
                 }
 

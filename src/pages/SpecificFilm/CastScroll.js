@@ -4,13 +4,15 @@ import styled from "styled-components"
 import { castFilm } from "./requestsFilm"
 import iconArrowLeft from "../../img/iconArrowLeft.svg"
 import iconArrowRigth from "../../img/iconArrowRight.svg"
+import { castSerie } from "../SpecificSerie/requestsSeries"
 
-export function CastScroll({ filmId }) {
+export function CastScroll({ filmId , session}) {
     const [cast, setCast] = useState()
     const [scrollCoordenates, setScrollCoordenates]= useState(0)
     console.log(cast?.length*16.4)
     console.log(cast)
 
+    console.log(filmId)
     function limitScroll(){
         if(scrollCoordenates > 0){
             setScrollCoordenates(0)
@@ -23,10 +25,10 @@ export function CastScroll({ filmId }) {
 
     useEffect(() => {
         const getCast = async () => {
-            const dataCast = await castFilm(filmId)
+            const dataCast = await (session === "serie" ? castSerie(filmId) : castFilm(filmId))
             console.log(dataCast)
 
-            setCast(dataCast.peoples)
+            setCast(dataCast?.peoples)
         }
 
         getCast()

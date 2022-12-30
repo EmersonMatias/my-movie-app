@@ -52,7 +52,7 @@ const HeaderContainer = styled.header`
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin: 0 80px;
+        margin: 0 4.1vw;
     }
 
     h6{
@@ -77,12 +77,10 @@ const HeaderContainer = styled.header`
     .login{
         margin-right: 0;
     }
-
-
     
     img{
         width: 40px;
         height: 40px;
-        margin: 0 80px 0 32px;
+        margin: 0 4.1vw 0 32px;
     }
 `

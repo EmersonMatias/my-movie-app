@@ -6,24 +6,24 @@ import { CastScroll } from "./CastScroll"
 import { request } from "./requestsFilm"
 import SubContent from "./SubContent"
 import { AboutFilm } from "./AboutFilm"
-
+import Footer from "../../components/Footer"
 
 export default function SpecificFilm() {
     const { id } = useParams()
     const [data, setData] = useState()
-    const randomNumber_background = Math.floor(Math.random() * (data?.backgrounds?.length - 1))
-    const randomNumber_poster = Math.floor(Math.random() * (data?.backgrounds?.length - 1))
+    const [randomNumber_background, setNumberBackground] = useState()
+    const [randomNumber_poster, setNumberPoster] = useState()
     const background = `https://www.themoviedb.org/t/p/original${data?.backgrounds[randomNumber_background]?.file_path}`
     const poster = `https://www.themoviedb.org/t/p/original${data?.backgrounds[randomNumber_poster]?.file_path}`
-
     console.log(data)
-
+ 
 
     useEffect(() => {
-
         const getRequest = async () => {
             const a = await request(id)
 
+            setNumberBackground(Math.floor(Math.random() * (a?.backgrounds?.length - 1)))
+            setNumberPoster(Math.floor(Math.random() * (a?.backgrounds?.length - 1)))
             setData(a)
         }
         getRequest(id)
@@ -32,14 +32,15 @@ export default function SpecificFilm() {
 
     return (
         <Container>
-            <SpecificFilmHeroSection background={background} poster={poster} title={data?.data.title} rate={data?.data.vote_average} />
+            <SpecificFilmHeroSection background={background} poster={poster} title={data?.data.title} rate={data?.data.vote_average} homepage={data?.data.homepage}/>
 
-            <SubContent runtime={data?.data?.runtime} year={data?.data?.release_date.split("-")[0]} genres={data?.data?.genres[0].name} providers={data?.providers} />
+            <SubContent runtime={data?.data?.runtime} year={data?.data?.release_date.split("-")[0]} genres={data?.data?.genres[0].name} providers={data?.providers} session={"filme"} />
 
-            <AboutFilm overview={data?.data?.overview} trailers={data?.trailers} trailerOpcional={data?.trailers[0]?.key}/>
+            <AboutFilm overview={data?.data?.overview} trailers={data?.trailers} trailerOpcional={data?.trailers[0]?.key} />
 
-            <CastScroll filmId={id}/>
+            <CastScroll filmId={id} />
 
+            <Footer />
 
         </Container>
     )
