@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import styled from "styled-components"
-import Footer from "../../components/Footer"
+import Footer from "../../components/Foooter"
 import { MyContext } from "../../context/MyContext"
 import HeroSection from "../../components/HeroSection"
 import ScrollScreen from "../../components/ScrollScreen"
@@ -10,6 +10,7 @@ export default function Home() {
     const { itemsHomeScreen } = useContext(MyContext)
     const { allItems } = useContext(MyContext)
     const HeroSectionHome = allItems?.HeroSectionHome
+    console.log(itemsHomeScreen)
 
     return (
         <Container>
@@ -24,7 +25,8 @@ export default function Home() {
             />
 
             {itemsHomeScreen?.map((datas) => (
-                <ScrollScreen title={datas.title} margin={datas.margin} listFilms={datas.items} />
+                <ScrollScreen title={datas?.title} margin={datas?.margin} listFilms={datas?.items} />
+          
             ))}
 
             <Footer />

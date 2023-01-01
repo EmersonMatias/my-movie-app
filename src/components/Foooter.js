@@ -2,7 +2,7 @@ import styled from "styled-components"
 import iconCopyright from "../img/iconCopyright.svg"
 
 
-export default function Footer(){
+export default function Foooter(){
     return(
         <Container>
             <p>Copyright 2022 Emerson Matthias.</p> <img src={iconCopyright}/><p>Todos os direitos reservados</p>

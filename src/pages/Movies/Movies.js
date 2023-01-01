@@ -1,19 +1,19 @@
-import { useContext} from "react"
+import { useContext } from "react"
 import styled from "styled-components"
-import Footer from "../../components/Footer"
 import { MyContext } from "../../context/MyContext"
 import HeroSection from "../../components/HeroSection"
 import ScrollScreen from "../../components/ScrollScreen"
+import Foooter from "../../components/Foooter"
 
 
 
 export default function Movies() {
     const { itemsMoviesScreen, allItems } = useContext(MyContext)
     const HeroSectionMovies = allItems?.HeroSectionMovies
-  
+
 
     console.log(itemsMoviesScreen)
-   
+
 
     return (
         <Container>
@@ -28,16 +28,16 @@ export default function Movies() {
             />
 
             {itemsMoviesScreen?.map((datas) => (
-                <ScrollScreen title={datas.title} margin={datas.margin} listFilms={datas.items} session={"filmes"}/>
+                <ScrollScreen title={datas?.title} margin={datas?.margin} listFilms={datas?.items} />
             ))}
 
-            <Footer />
+            <Foooter />
         </Container>)
 }
 
 const Container = styled.div`
     width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 50px;
     background: #101216;
     overflow: hidden;

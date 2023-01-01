@@ -61,7 +61,7 @@ const Container = styled.div`
     .title{
         width: 54vw;
         height: 5vw;
-        background-color: rgba(0,0,0,0.88);
+        background-color: rgba(0,0,0,0.5);
         border-radius: 0 0 50px 50px;
         position: absolute;
         margin-top: 36.04vw;
@@ -94,6 +94,5 @@ const Container = styled.div`
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
     }
 `

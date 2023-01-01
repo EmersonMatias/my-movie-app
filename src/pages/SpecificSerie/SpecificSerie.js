@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
-import Footer from "../../components/Footer"
+import Footer from "../../components/Foooter"
 import Header from "../../components/Header"
 import { AboutFilm } from "../SpecificFilm/AboutFilm"
 import { CastScroll } from "../SpecificFilm/CastScroll"
-import SpecificFilm_HeroSection from "../SpecificFilm/SpecificFilm_HeroSection"
+import SpecificFilmHeroSection from "../SpecificFilm/SpecificFilm_HeroSection"
 import SubContent from "../SpecificFilm/SubContent"
 import { requestsSerie } from "./requestsSeries"
 
@@ -38,8 +38,8 @@ export default function SpecificSerie() {
     return (
         <Container>
             <Header />
-            <SpecificFilm_HeroSection background={background} poster={poster} title={data?.data.title} name={data?.data.name} rate={data?.data.vote_average} homepage={data?.data.homepage}/>
-            <SubContent runtime={data?.data?.number_of_seasons} year={data?.data?.first_air_date.split("-")[0]} genres={data?.data?.genres[0].name} providers={data?.providers} session={"serie"}/>
+            <SpecificFilmHeroSection background={background} poster={poster} title={data?.data.title} name={data?.data.name} rate={data?.data.vote_average} homepage={data?.data?.homepage}/>
+            <SubContent runtime={data?.data?.number_of_seasons} year={data?.data?.first_air_date.split("-")[0]} genres={data?.data?.genres[0]?.name} providers={data?.providers} session={"serie"}/>
             <AboutFilm overview={data?.data?.overview} trailers={data?.trailers} trailerOpcional={data?.trailers[0]?.key} />
 
             <CastScroll filmId={id} session={"serie"}/>

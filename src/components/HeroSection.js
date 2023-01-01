@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import iconStar from "../img/iconStar.svg"
-import iconPlus from "../img/iconPlus.svg"
+import iconPlus2 from "../img/iconPlus2.svg"
+import iconFavorite from "../img/iconRating.svg"
 
-export default function HeroSection({background, poster,filmTitle, name,overview,  height, stateButtons}) {
+export default function HeroSection({ background, poster, filmTitle, name, overview, height, stateButtons }) {
     function title() {
         if (filmTitle === undefined) {
             return name
@@ -12,7 +12,7 @@ export default function HeroSection({background, poster,filmTitle, name,overview
     }
 
     return (
-        <HeroSectionContainer  backgroundPage={background} height={height} stateButtons={stateButtons}>
+        <HeroSectionContainer backgroundPage={background} height={height} stateButtons={stateButtons}>
 
             <div className="opacity">
             </div>
@@ -23,8 +23,8 @@ export default function HeroSection({background, poster,filmTitle, name,overview
                 <div className="textHeroSection">
                     <h2>{title()}</h2>
                     <div className="buttonsHeroSection">
-                        <button>QUERO ASSISTIR <img alt="Icone Mais" src={iconPlus} /></button>
-                        <button>FAVORITO <img alt="Icone Estrela" src={iconStar} /></button>
+                        <button><p>QUERO ASSISTIR</p> <img alt="Icone Mais" src={iconPlus2} /></button>
+                        <button><p>FAVORITO</p> <img alt="Icone Estrela" src={iconFavorite} /></button>
                     </div>
                     <p className="description">{overview}
                     </p>
@@ -54,7 +54,6 @@ const HeroSectionContainer = styled.section`
     }
     */ 
 
-    
     .gradient{
         width: 100%;
         height: ${props => props.height};
@@ -98,8 +97,8 @@ const HeroSectionContainer = styled.section`
         button{
             padding: 16px 32px;
             border-radius: 30px;
-            background: linear-gradient(90deg, hsla(42, 93%, 57%, 0.9) 0%, hsla(358, 78%, 62%, 0.9) 100%);
-            border: none;
+            background-color: rgb(0,0,0, 80%);
+    
             color: white;
             font-size: 16px;
             font-weight: bold;
@@ -108,6 +107,14 @@ const HeroSectionContainer = styled.section`
             justify-content: center;
             margin-right: 32px;
             margin-bottom: 32px;
+
+            p{
+                background: -webkit-linear-gradient(90deg, hsla(52, 82%, 52%, 1) 0%, hsla(1, 92%, 47%, 1) 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+         
 
             img{
                 width: 24px;

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import styled from "styled-components"
-import Footer from "../../components/Footer"
+import Footer from "../../components/Foooter"
 import HeroSection from "../../components/HeroSection"
 import ScrollScreen from "../../components/ScrollScreen"
 import { MyContext } from "../../context/MyContext"
@@ -22,12 +22,12 @@ export function Series() {
             />
 
             {itemsSeriesScreen?.map((datas) => (
-                <ScrollScreen title={datas?.title} margin={datas?.margin} listFilms={datas?.items} session={"series"}/>
+                <ScrollScreen title={datas?.title} margin={datas?.margin} listFilms={datas?.items} />
             ))}
 
             <Footer />
 
-        </Container>
+        </Container> 
     )
 }
 

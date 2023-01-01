@@ -147,10 +147,9 @@ const Container = styled.div`
             button{
                 width: 6vw;
                 height: 4vw;
-                border: none;
                 cursor: pointer;
                 margin-left: 2vw;
-                background-color: rgba(37,40,54,0.32);
+                background-color: rgba(0,0,0,0.5);
                 border-radius: 24px;;
 
                 img{

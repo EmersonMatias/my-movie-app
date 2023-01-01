@@ -18,7 +18,7 @@ export default function Header() {
 
             <div className="rightSide">
                 <input placeholder="Pesquisar"></input>
-                <h6 className="login">Login</h6>
+                <h6 className="login" onClick={() => navigate("/login")}>Login</h6>
                 <img className="user" alt="icon User"src={iconUserFill} />
             </div>
         </HeaderContainer>

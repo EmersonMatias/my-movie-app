@@ -9,10 +9,7 @@ import { castSerie } from "../SpecificSerie/requestsSeries"
 export function CastScroll({ filmId , session}) {
     const [cast, setCast] = useState()
     const [scrollCoordenates, setScrollCoordenates]= useState(0)
-    console.log(cast?.length*16.4)
-    console.log(cast)
 
-    console.log(filmId)
     function limitScroll(){
         if(scrollCoordenates > 0){
             setScrollCoordenates(0)

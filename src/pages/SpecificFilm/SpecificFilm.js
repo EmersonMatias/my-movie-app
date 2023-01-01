@@ -6,7 +6,7 @@ import { CastScroll } from "./CastScroll"
 import { request } from "./requestsFilm"
 import SubContent from "./SubContent"
 import { AboutFilm } from "./AboutFilm"
-import Footer from "../../components/Footer"
+import Footer from "../../components/Foooter"
 
 export default function SpecificFilm() {
     const { id } = useParams()

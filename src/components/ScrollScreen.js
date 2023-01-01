@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom"
 export default function ScrollScreen({ title, margin, listFilms, session}) {
     const [scrollCoordenates, setScrollCoordentes] = useState(0)
     const navigate = useNavigate()
+    console.log(session)
 
     //Função leftScroll
     function leftScroll() {
@@ -38,7 +39,7 @@ export default function ScrollScreen({ title, margin, listFilms, session}) {
                         <img
                             src={`https://image.tmdb.org/t/p/original/${object?.poster_path}`}
                             alt="Capa filme"
-                            onClick={() => navigate(`/${session}/${object?.id}`)}
+                            onClick={() => navigate(`/${!object.title ? "series" : "filmes"}/${object?.id}`)}
                         />
                     ))}
                 </div>

@@ -10,6 +10,8 @@ import SpecificFilm from "./pages/SpecificFilm/SpecificFilm";
 import SpecificSerie from "./pages/SpecificSerie/SpecificSerie";
 import { requests } from "./requests.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Signin from "./pages/Signin/Signin";
+import Foooter from "./components/Foooter.js"
 
 
 export default function App() {
@@ -17,7 +19,7 @@ export default function App() {
   const [itemsHomeScreen, setItemsHomeScreen] = useState()
   const [itemsMoviesScreen, setItemsMovieScreen] = useState()
   const [itemsSeriesScreen, setItemsSeriesScreen] = useState()
-  console.log("a")
+  console.log(allItems?.HeroSectionHome)
 
   useEffect(() => {
     const getListMovies = async () => {
@@ -33,7 +35,7 @@ export default function App() {
   }, [])
 
   return (
-    <BrowserRouter> 
+    <BrowserRouter>
       <GlobalStyles />
       <MyContext.Provider value={{
         setItemsHomeScreen, setItemsMovieScreen, itemsHomeScreen, itemsMoviesScreen, itemsSeriesScreen, allItems
@@ -47,7 +49,9 @@ export default function App() {
           <Route path='/series' element={<Series />} />
           <Route path="/filmes/:id" element={<SpecificFilm />} />
           <Route path="/series/:id" element={<SpecificSerie />} />
+          <Route path="/login" element={<Signin />} />
         </Routes>
+
 
 
       </MyContext.Provider >
