@@ -11,7 +11,7 @@ import SpecificSerie from "./pages/SpecificSerie/SpecificSerie";
 import { requests } from "./requests.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signin from "./pages/Signin/Signin";
-import Foooter from "./components/Foooter.js"
+import Signup from "./pages/Signup/Signup";
 
 
 export default function App() {
@@ -50,6 +50,7 @@ export default function App() {
           <Route path="/filmes/:id" element={<SpecificFilm />} />
           <Route path="/series/:id" element={<SpecificSerie />} />
           <Route path="/login" element={<Signin />} />
+          <Route path="/cadastrar" element={<Signup/>}/>
         </Routes>
 
 

@@ -110,7 +110,8 @@ const PopularContainer = styled.section`
     .arrow{
         width: 50px;
         height: 200px;
-        background-color: rgb(0,0,0,0.5);
+        background-color: rgb(0,0,0, 80%);
+        border-radius: 16px;
         position: absolute;
         opacity: 0;
     }
